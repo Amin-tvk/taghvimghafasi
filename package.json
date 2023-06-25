@@ -1,0 +1,27 @@
+{
+  "name": "@grammyjs/files",
+  "description": "Files plugin for grammY",
+  "version": "latest",
+  "author": "KnorpelSenf",
+  "license": "MIT",
+  "engines": {
+    "node": "^12.20.0 || >=14.13.1"
+  },
+  "homepage": "https://grammy.dev/plugins/files.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grammyjs/files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grammyjs/files/issues"
+  },
+  "dependencies": {
+    "@grammyjs/files": "^1.0.4",
+    "@grammyjs/router": "^2.0.0",
+    "grammy": "^1.16.2",
+    "node-telegram-bot-api": "^0.61.0",
+    "path": "^0.12.7",
+    "Router": "^2.1.0",
+    "telegraf": "^4.12.2"
+  }
+}
