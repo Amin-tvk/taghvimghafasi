@@ -1,21 +1,30 @@
 const { Bot , InputFile} = require('grammy');
 const path = require('path');
 const { FileFlavor, hydrateFiles } = require ("@grammyjs/files");
-
+const fs = require('fs');
+const moment = require('moment-timezone');
 
 const bot = new Bot('5441085680:AAGiFH4_oMoCd0dtBao7HB7r6MN-PvLB1Ww');
-
 bot.api.config.use(hydrateFiles(bot.token));
+const timezone = 'Asia/Tehran';
+moment.tz.setDefault(timezone);
+
 
 bot.on([":video", ":animation" ], async (ctx) => {
-  // Prepare the file for download.
-  const file = await ctx.getFile();
+  console.log(ctx.chat.username)
+  const tehranTime = moment().format('HH:mm');
+  if ( ctx.chat.username == 'dsffewf' && tehranTime == '00:00') {
+    const file = await ctx.getFile();
   // Download the file to a temporary location.
-  const path = await file.download();
+  const path = await file.download("./src/test.mp4");
   // Print the file path.
   console.log("File saved at ", path);
+  await ctx.reply('این ربات تنها در گروه‌ها فعال است.' );
+  }else{
+    console.log(" در این کانال کار نمیکند!!")
+  }
+    
 });
-
 bot.on('message', async (ctx) => {
   const chatType = ctx.chat.type;
   console.log(chatType)
@@ -52,7 +61,7 @@ for (const message of messages) {
       //await ctx.replyWithPhoto(photoPath, { caption: 'متن توضیحات عکس' });
       const animationPath = './giphy.gif';
       //await ctx.replyWithAnimation(animationPath, { caption: 'متن توضیحات گیف' });
-      const photoPath = './gif/rbvxvsnkbtleswwgsnfpfpbgrscmjdfiigjqvmoovnxytbwqfeksaisgockwntug.mp4';
+      const photoPath = './src/test.mp4';
       const inputFile = new InputFile(photoPath);
 
       await ctx.replyWithAnimation(inputFile , {
@@ -78,3 +87,4 @@ for (const message of messages) {
 });
 
 bot.start();
+

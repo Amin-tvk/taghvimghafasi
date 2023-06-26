@@ -18,7 +18,10 @@
   "dependencies": {
     "@grammyjs/files": "^1.0.4",
     "@grammyjs/router": "^2.0.0",
+    "date-and-time": "^3.0.2",
     "grammy": "^1.16.2",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "node-telegram-bot-api": "^0.61.0",
     "path": "^0.12.7",
     "Router": "^2.1.0",
