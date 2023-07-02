@@ -8,7 +8,7 @@ const bot = new Bot('5992329338:AAFeMzENjcxAATji5mpDcgLNZg7VjfFfv9U');
 bot.api.config.use(hydrateFiles(bot.token));
 const timezone = 'Asia/Tehran';
 moment.tz.setDefault(timezone);
- const channel_id = 'taghvimghafasibot'
+ const channel_id = 'taghvimghafasi'
  
 
 bot.on([":video", ":animation" ], async (ctx) => {
