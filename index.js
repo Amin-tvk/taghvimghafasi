@@ -8,14 +8,14 @@ const bot = new Bot('5992329338:AAFeMzENjcxAATji5mpDcgLNZg7VjfFfv9U');
 bot.api.config.use(hydrateFiles(bot.token));
 const timezone = 'Asia/Tehran';
 moment.tz.setDefault(timezone);
- const channel_id = 'taghvimghafasi'
+ const channel_id = 'taghvimghafasibot'
  
 
 bot.on([":video", ":animation" ], async (ctx) => {
   console.log(ctx.chat.username)
   
   const tehranTime = moment().format('HH:mm');
-  if ( ctx.chat.username == channel_id && tehranTime == '00:00') {
+  if ( ctx.chat.username == channel_id && tehranTime == '00:00' || tehranTime == '00:01' ) {
     const file = await ctx.getFile();
   // Download the file to a temporary location.
   const path = await file.download("./src/test.mp4");
@@ -43,7 +43,7 @@ bot.on('message', async (ctx) => {
     const text = message.text || '';
     const member = message.from;
     console.log(message.date) 
-    if (text.includes('امروز چندمه')) {
+    if (text.includes('امروز چندمه') || text.includes('امروز چه روزیه') ) {
       const memberName = member.first_name || member.username;
       const chatId = '@dsffewf';
       const logo = "https://ibb.co/hfnLP3w";
