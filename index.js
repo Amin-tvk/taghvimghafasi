@@ -15,7 +15,8 @@ bot.on([":video", ":animation" ], async (ctx) => {
   console.log(ctx.chat.username)
   
   const tehranTime = moment().format('HH:mm');
-  if ( ctx.chat.username == channel_id && tehranTime == '00:00' || tehranTime == '00:01' ) {
+
+  if ( ctx.chat.username == channel_id && (tehranTime == '00:00' || tehranTime == '00:01' )) {
     const file = await ctx.getFile();
   // Download the file to a temporary location.
   const path = await file.download("./src/test.mp4");
@@ -71,4 +72,3 @@ const currentEpoch = new Date().getTime();
 bot.start();
 
 console.log(Math.floor(new Date().getTime()/1000.0) )
-
